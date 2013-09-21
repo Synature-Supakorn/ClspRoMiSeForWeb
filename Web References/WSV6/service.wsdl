@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="pRoMiSeSystem" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="pRoMiSeSystem" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="pRoMiSeSystem">
+      <s:element name="ExportDataSetToBranch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsResultList" type="tns:ArrayOfDataSet" />
+            <s:element minOccurs="1" maxOccurs="1" name="RegionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataSet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataSet" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExportDataSetToBranchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExportDataSetToBranchResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsResultList" type="tns:ArrayOfDataSet" />
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutoUpdateDataSetToHQ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutoUpdateDataSetToHQResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AutoUpdateDataSetToHQResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportRewardPointSummaryAtHQ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportRewardPointSummaryAtHQResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportRewardPointSummaryAtHQResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportSummarySaleByDateToHQ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportSummarySaleByDateToHQResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportSummarySaleByDateToHQResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="searchBy" type="tns:SearchMemberBy" />
+            <s:element minOccurs="0" maxOccurs="1" name="paramSearch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberData" type="tns:ArrayOfMember_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsMemberData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="SearchMemberBy">
+        <s:restriction base="s:string">
+          <s:enumeration value="MemberCode" />
+          <s:enumeration value="MemberMobile" />
+          <s:enumeration value="MemberName" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfMember_Data">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Member_Data" nillable="true" type="tns:Member_Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Member_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberGroupID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberGroupCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberGroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberGendor" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberCity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberProvince" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberTelephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberEmail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberBirthDay" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberActivate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberExpiration" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberInputDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberLastUseDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberUpdatePoint" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberUpdaetDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberUpdateBy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberTotalPoint" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberAdditional" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageDetail" type="tns:ArrayOfPackagedetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPackagedetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="packagedetail" nillable="true" type="tns:packagedetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="packagedetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PackageID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductLevelID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComputerID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDetailID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpireDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PurchaseDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageDisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageNote" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Deleted" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="VATType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageProductType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageOriginalAmount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageCurrentAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxAllowEditAmount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackagePrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="AllowUseInShop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageHistory" type="tns:ArrayOfPackagehistory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPackagehistory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Packagehistory" nillable="true" type="tns:Packagehistory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Packagehistory">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PackageHistoryID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductLevelID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComputerID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDetailID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommissionPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommissionPriceVAT" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdditionalPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageSessionAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Updatedate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchMemberResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberData" type="tns:ArrayOfMember_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsMemberData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="searchBy" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberMobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberData" type="tns:Member_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsMemberData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMemberResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberData" type="tns:Member_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsMemberData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUpdateMembersAtQH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fromShopID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="destinationShopID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUpdateMembersAtQHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUpdateMembersAtQHResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchSummaryPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberData" type="tns:SummaryPoint_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SummaryPoint_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPoint" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdatePoint" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchSummaryPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchSummaryPointResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberData" type="tns:SummaryPoint_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSoftwareVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ComputerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductLevelID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FrontVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FrontFileDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FrontUpdateDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="backOfficeVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="backOfficeFileDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="backOfficeUpdateDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvVersion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvFileDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvUpdateDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSoftwareVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSoftwareVersionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSoftwareVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="programTypeID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="softwareData" type="tns:Softwareversion_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Softwareversion_Data">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProgramTypeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPHQServer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FTPUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FTPPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateServerPath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSoftwareVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSoftwareVersionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="softwareData" type="tns:Softwareversion_Data" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContentLastUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="shopID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sectionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="limitContent" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentData" type="tns:ArrayOfNews_CategoryData" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNews_CategoryData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="News_CategoryData" nillable="true" type="tns:News_CategoryData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="News_CategoryData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SectionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CategoryDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentDetail" type="tns:ArrayOfNews_ContentData" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentTotal" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNews_ContentData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="News_ContentData" nillable="true" type="tns:News_ContentData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="News_ContentData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SectionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Detail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Published" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartPublished" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinishPublished" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="InsertStaffID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UpdateStaffID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ContentLastUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContentLastUpdateResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="contentData" type="tns:ArrayOfNews_CategoryData" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContentSection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sectionData" type="tns:ArrayOfNews_SectionData" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNews_SectionData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="News_SectionData" nillable="true" type="tns:News_SectionData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="News_SectionData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SectionID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Published" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ContentSectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ContentSectionResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Member_UpdatePackage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objPackage" type="tns:ArrayOfPackagehistory" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Member_UpdatePackageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Member_UpdatePackageResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="resultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Payment_Paybyvoucher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="resultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Payment_PaybyvoucherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Payment_PaybyvoucherResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsData">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="resultText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteErrorLogFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteErrorLogFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WriteErrorLogFileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExportDataSetToBranchSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportDataSetToBranch" />
+  </wsdl:message>
+  <wsdl:message name="ExportDataSetToBranchSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportDataSetToBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutoUpdateDataSetToHQSoapIn">
+    <wsdl:part name="parameters" element="tns:AutoUpdateDataSetToHQ" />
+  </wsdl:message>
+  <wsdl:message name="AutoUpdateDataSetToHQSoapOut">
+    <wsdl:part name="parameters" element="tns:AutoUpdateDataSetToHQResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportRewardPointSummaryAtHQSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportRewardPointSummaryAtHQ" />
+  </wsdl:message>
+  <wsdl:message name="ImportRewardPointSummaryAtHQSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportRewardPointSummaryAtHQResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportSummarySaleByDateToHQSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportSummarySaleByDateToHQ" />
+  </wsdl:message>
+  <wsdl:message name="ImportSummarySaleByDateToHQSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportSummarySaleByDateToHQResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchMember" />
+  </wsdl:message>
+  <wsdl:message name="SearchMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMember" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUpdateMembersAtQHSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUpdateMembersAtQH" />
+  </wsdl:message>
+  <wsdl:message name="AddUpdateMembersAtQHSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUpdateMembersAtQHResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSummaryPointSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchSummaryPoint" />
+  </wsdl:message>
+  <wsdl:message name="SearchSummaryPointSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchSummaryPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoftwareVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSoftwareVersion" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoftwareVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSoftwareVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftwareVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSoftwareVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftwareVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSoftwareVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContentLastUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:ContentLastUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ContentLastUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:ContentLastUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContentSectionSoapIn">
+    <wsdl:part name="parameters" element="tns:ContentSection" />
+  </wsdl:message>
+  <wsdl:message name="ContentSectionSoapOut">
+    <wsdl:part name="parameters" element="tns:ContentSectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Member_UpdatePackageSoapIn">
+    <wsdl:part name="parameters" element="tns:Member_UpdatePackage" />
+  </wsdl:message>
+  <wsdl:message name="Member_UpdatePackageSoapOut">
+    <wsdl:part name="parameters" element="tns:Member_UpdatePackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="Payment_PaybyvoucherSoapIn">
+    <wsdl:part name="parameters" element="tns:Payment_Paybyvoucher" />
+  </wsdl:message>
+  <wsdl:message name="Payment_PaybyvoucherSoapOut">
+    <wsdl:part name="parameters" element="tns:Payment_PaybyvoucherResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteErrorLogFileSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteErrorLogFile" />
+  </wsdl:message>
+  <wsdl:message name="WriteErrorLogFileSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteErrorLogFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="ExportDataSetToBranch">
+      <wsdl:input message="tns:ExportDataSetToBranchSoapIn" />
+      <wsdl:output message="tns:ExportDataSetToBranchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoUpdateDataSetToHQ">
+      <wsdl:input message="tns:AutoUpdateDataSetToHQSoapIn" />
+      <wsdl:output message="tns:AutoUpdateDataSetToHQSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportRewardPointSummaryAtHQ">
+      <wsdl:input message="tns:ImportRewardPointSummaryAtHQSoapIn" />
+      <wsdl:output message="tns:ImportRewardPointSummaryAtHQSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportSummarySaleByDateToHQ">
+      <wsdl:input message="tns:ImportSummarySaleByDateToHQSoapIn" />
+      <wsdl:output message="tns:ImportSummarySaleByDateToHQSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchMember">
+      <wsdl:input message="tns:SearchMemberSoapIn" />
+      <wsdl:output message="tns:SearchMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMember">
+      <wsdl:input message="tns:GetMemberSoapIn" />
+      <wsdl:output message="tns:GetMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateMembersAtQH">
+      <wsdl:input message="tns:AddUpdateMembersAtQHSoapIn" />
+      <wsdl:output message="tns:AddUpdateMembersAtQHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSummaryPoint">
+      <wsdl:input message="tns:SearchSummaryPointSoapIn" />
+      <wsdl:output message="tns:SearchSummaryPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSoftwareVersion">
+      <wsdl:input message="tns:UpdateSoftwareVersionSoapIn" />
+      <wsdl:output message="tns:UpdateSoftwareVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftwareVersion">
+      <wsdl:input message="tns:GetSoftwareVersionSoapIn" />
+      <wsdl:output message="tns:GetSoftwareVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContentLastUpdate">
+      <wsdl:input message="tns:ContentLastUpdateSoapIn" />
+      <wsdl:output message="tns:ContentLastUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContentSection">
+      <wsdl:input message="tns:ContentSectionSoapIn" />
+      <wsdl:output message="tns:ContentSectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Member_UpdatePackage">
+      <wsdl:input message="tns:Member_UpdatePackageSoapIn" />
+      <wsdl:output message="tns:Member_UpdatePackageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Payment_Paybyvoucher">
+      <wsdl:input message="tns:Payment_PaybyvoucherSoapIn" />
+      <wsdl:output message="tns:Payment_PaybyvoucherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteErrorLogFile">
+      <wsdl:input message="tns:WriteErrorLogFileSoapIn" />
+      <wsdl:output message="tns:WriteErrorLogFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExportDataSetToBranch">
+      <soap:operation soapAction="pRoMiSeSystem/ExportDataSetToBranch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoUpdateDataSetToHQ">
+      <soap:operation soapAction="pRoMiSeSystem/AutoUpdateDataSetToHQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRewardPointSummaryAtHQ">
+      <soap:operation soapAction="pRoMiSeSystem/ImportRewardPointSummaryAtHQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSummarySaleByDateToHQ">
+      <soap:operation soapAction="pRoMiSeSystem/ImportSummarySaleByDateToHQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchMember">
+      <soap:operation soapAction="pRoMiSeSystem/SearchMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMember">
+      <soap:operation soapAction="pRoMiSeSystem/GetMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateMembersAtQH">
+      <soap:operation soapAction="pRoMiSeSystem/AddUpdateMembersAtQH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSummaryPoint">
+      <soap:operation soapAction="pRoMiSeSystem/SearchSummaryPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSoftwareVersion">
+      <soap:operation soapAction="pRoMiSeSystem/UpdateSoftwareVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftwareVersion">
+      <soap:operation soapAction="pRoMiSeSystem/GetSoftwareVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContentLastUpdate">
+      <soap:operation soapAction="pRoMiSeSystem/ContentLastUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContentSection">
+      <soap:operation soapAction="pRoMiSeSystem/ContentSection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Member_UpdatePackage">
+      <soap:operation soapAction="pRoMiSeSystem/Member_UpdatePackage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Payment_Paybyvoucher">
+      <soap:operation soapAction="pRoMiSeSystem/Payment_Paybyvoucher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteErrorLogFile">
+      <soap:operation soapAction="pRoMiSeSystem/WriteErrorLogFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExportDataSetToBranch">
+      <soap12:operation soapAction="pRoMiSeSystem/ExportDataSetToBranch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoUpdateDataSetToHQ">
+      <soap12:operation soapAction="pRoMiSeSystem/AutoUpdateDataSetToHQ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportRewardPointSummaryAtHQ">
+      <soap12:operation soapAction="pRoMiSeSystem/ImportRewardPointSummaryAtHQ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportSummarySaleByDateToHQ">
+      <soap12:operation soapAction="pRoMiSeSystem/ImportSummarySaleByDateToHQ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchMember">
+      <soap12:operation soapAction="pRoMiSeSystem/SearchMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMember">
+      <soap12:operation soapAction="pRoMiSeSystem/GetMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUpdateMembersAtQH">
+      <soap12:operation soapAction="pRoMiSeSystem/AddUpdateMembersAtQH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSummaryPoint">
+      <soap12:operation soapAction="pRoMiSeSystem/SearchSummaryPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSoftwareVersion">
+      <soap12:operation soapAction="pRoMiSeSystem/UpdateSoftwareVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftwareVersion">
+      <soap12:operation soapAction="pRoMiSeSystem/GetSoftwareVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContentLastUpdate">
+      <soap12:operation soapAction="pRoMiSeSystem/ContentLastUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContentSection">
+      <soap12:operation soapAction="pRoMiSeSystem/ContentSection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Member_UpdatePackage">
+      <soap12:operation soapAction="pRoMiSeSystem/Member_UpdatePackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Payment_Paybyvoucher">
+      <soap12:operation soapAction="pRoMiSeSystem/Payment_Paybyvoucher" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteErrorLogFile">
+      <soap12:operation soapAction="pRoMiSeSystem/WriteErrorLogFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost/Webservice613/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost/Webservice613/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
